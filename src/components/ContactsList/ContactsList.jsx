@@ -1,5 +1,17 @@
-import { ListByContacts } from "./ContactsList.styled";
+import { ContactItem } from '.';
+import { ListByContacts } from './ContactsList.styled';
 
-export function ContactsList({ children }) {
-  return <ListByContacts>{children}</ListByContacts>;
+export function ContactsList({ contacts = [] }) {
+  return (
+    <ListByContacts>
+      {contacts.map(({ id, name, number }) => (
+        <ContactItem
+          key={id}
+          name={name}
+          number={number}
+          handleDelete={() => this.deleteContact(id)}
+        />
+      ))}
+    </ListByContacts>
+  );
 }

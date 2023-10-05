@@ -1,8 +1,8 @@
+import { ContactForm } from 'components/ContactForm/ContactForm';
+import { ContactsList } from 'components/ContactsList';
+import { Filter } from 'components/Filter/Filter';
 import { Component } from 'react';
 import { Container } from './App.styled';
-import { ContactForm } from 'components/ContactForm/ContactForm';
-import { Filter } from 'components/Filter/Filter';
-import { ContactsList, ContactItem } from 'components/ContactsList';
 
 const LS_KEY = 'phone-book';
 
@@ -59,16 +59,7 @@ export class App extends Component {
           </div>
           <div className="contacts-container">
             <h2 className="title">Contacts</h2>
-            <ContactsList>
-              {this.filteredContacts().map(({ id, name, number }) => (
-                <ContactItem
-                  key={id}
-                  name={name}
-                  number={number}
-                  handleDelete={() => this.deleteContact(id)}
-                />
-              ))}
-            </ContactsList>
+            <ContactsList contacts={this.filteredContacts()} />
           </div>
         </Container>
       </>
