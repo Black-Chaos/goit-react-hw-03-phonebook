@@ -59,7 +59,7 @@ export class App extends Component {
           </div>
           <div className="contacts-container">
             <h2 className="title">Contacts</h2>
-            <ContactsList contacts={this.filteredContacts()} />
+            <ContactsList contacts={this.filteredContacts()} handleDelete={this.deleteContact} />
           </div>
         </Container>
       </>

@@ -1,7 +1,7 @@
 import { ContactItem } from '.';
 import { ListByContacts } from './ContactsList.styled';
 
-export function ContactsList({ contacts = [] }) {
+export function ContactsList({ contacts = [], handleDelete }) {
   return (
     <ListByContacts>
       {contacts.map(({ id, name, number }) => (
@@ -9,7 +9,7 @@ export function ContactsList({ contacts = [] }) {
           key={id}
           name={name}
           number={number}
-          handleDelete={() => this.deleteContact(id)}
+          handleDelete={() => handleDelete(id)}
         />
       ))}
     </ListByContacts>
